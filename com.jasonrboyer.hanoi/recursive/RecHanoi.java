@@ -10,6 +10,7 @@ package recursive;
  */
 public class RecHanoi{
 	private Plate[] pegOne, pegTwo, pegThree; 	//The pegs/towers
+	private int pegOneTop,pegTwoTop,pegThreeTop;//The top of the tower pointer
 	private int size;							//The size of each tower
 	private boolean autoDisplay;				//Flag to indicate if the towers should be displayed after each change or not.
 	
@@ -30,6 +31,8 @@ public class RecHanoi{
 		pegOne = new Plate[size];
 		pegTwo = new Plate[size];
 		pegThree = new Plate[size];
+		pegOneTop=pegTwoTop=pegThreeTop=0;
+		System.out.println(pegOneTop + " " + pegTwoTop + " " + pegThreeTop);
 		
 		//Initialize each tower to an empty value.
 		for(int i=0; i<size;i++){
@@ -71,7 +74,6 @@ public class RecHanoi{
 	 */
 	private int moveTowerHelper(Plate[] startPeg, Plate[] endPeg, Plate[] tempPeg){
 		int count=0;
-		
 		return count;
 	}
 	
