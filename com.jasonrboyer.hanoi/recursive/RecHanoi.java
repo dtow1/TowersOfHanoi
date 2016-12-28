@@ -31,9 +31,6 @@ public class RecHanoi{
 		pegOne = new Plate[size];
 		pegTwo = new Plate[size];
 		pegThree = new Plate[size];
-		pegOneTop=size;
-		pegTwoTop=pegThreeTop=0;
-		System.out.println(pegOneTop + " " + pegTwoTop + " " + pegThreeTop);
 		
 		//Initialize each tower to an empty value.
 		for(int i=0; i<size;i++){
@@ -52,14 +49,14 @@ public class RecHanoi{
 	 * @param end - Peg that will hold the final tower
 	 */
 	public int moveTower(int targetPeg){
-		if(targetPeg!=2 || targetPeg!=3){
+		if(targetPeg!=2 && targetPeg!=3){
 			throw new IllegalArgumentException("Only peg 2 and peg 3 are valid targets for the tower move");
 		}
 		//Since only 2 or 3 should get to this point, else handles 3
 		if(targetPeg==2){
-			return moveTowerHelper(pegOne,pegTwo,pegThree);
+			return moveTowerHelper(size,pegOne,pegTwo,pegThree);
 		}else{
-			return moveTowerHelper(pegOne,pegThree,pegTwo);
+			return moveTowerHelper(size,pegOne,pegThree,pegTwo);
 		}
 
 	}
@@ -73,10 +70,20 @@ public class RecHanoi{
 	 * @param tempPeg - The temporary peg that can be used if multiple plates need to be moved
 	 * @return = returns the number of moves used so far.
 	 */
-	private int moveTowerHelper(Plate[] startPeg, Plate[] endPeg, Plate[] tempPeg){
+	private int moveTowerHelper(int size, Plate[] startPeg, Plate[] endPeg, Plate[] tempPeg){
 		int count=0;
-		return count;
+		if(size==1){
+			movePlate(startPeg,endPeg);
+			return count++;
+		}else{
+			count+=moveTowerHelper(size-1,startPeg,tempPeg,endPeg);
+			movePlate(startPeg,endPeg);
+			count++;
+			count+=moveTowerHelper(size-1,tempPeg,endPeg,startPeg);
+			return count;
+		}
 	}
+	
 	
 	/**
 	 * Private method to complete the actual move of a plate.
@@ -84,8 +91,27 @@ public class RecHanoi{
 	 * @param startPeg - Peg that a plate will be moved from
 	 * @param endPeg - Peg that a plate will be moved to
 	 */
-	private void movePeg(int startPeg, int endPeg){
+	private void movePlate(Plate[] startPeg, Plate[] endPeg){
 		
+			if(startPeg[0]!=null){
+				int startPegTop=0;
+				int endPegTop=0;
+				for(Plate start: startPeg){
+					if(start!=null){
+						startPegTop++;
+					}
+				}
+				for(Plate end: endPeg){
+					if(end!=null){
+						endPegTop++;
+					}
+				}
+				
+				endPeg[endPegTop]=startPeg[startPegTop-1];
+				startPeg[startPegTop-1]=null;
+			}
+
+
 	}
 	
 	/**
@@ -106,6 +132,7 @@ public class RecHanoi{
 		for(int i=0;i<size && pegThree[i]!=null; i++){
 			System.out.print(pegThree[i].getNumber() + " ");
 		}
+		System.out.println();
 	}
 	
 	
