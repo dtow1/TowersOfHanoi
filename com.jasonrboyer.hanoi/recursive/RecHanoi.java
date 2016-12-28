@@ -48,7 +48,15 @@ public class RecHanoi{
 	 * @param end - Peg that will hold the final tower
 	 */
 	public int moveTower(int targetPeg){
-		return 0;
+		if(targetPeg!=2 || targetPeg!=3){
+			throw new IllegalArgumentException("Only peg 2 and peg 3 are valid targets for the tower move");
+		}
+		if(targetPeg==2){
+			return moveTowerHelper(pegOne,pegTwo,pegThree);
+		}else{
+			return moveTowerHelper(pegOne,pegThree,pegTwo);
+		}
+
 	}
 	
 	/**
@@ -60,8 +68,8 @@ public class RecHanoi{
 	 * @param tempPeg - The temporary peg that can be used if multiple plates need to be moved
 	 * @return = returns the number of moves used so far.
 	 */
-	private int moveTowerHelper(int count, int startPeg, int endPeg, int tempPeg){
-		count=0;
+	private int moveTowerHelper(Plate[] startPeg, Plate[] endPeg, Plate[] tempPeg){
+		int count=0;
 		
 		return count;
 	}
