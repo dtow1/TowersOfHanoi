@@ -33,7 +33,7 @@ public class RecHanoi{
 		
 		//Initialize each tower to an empty value.
 		for(int i=0; i<size;i++){
-			pegOne[i]=null;
+			pegOne[i]=new Plate(i+1);
 			pegTwo[i]=null;
 			pegThree[i]=null;
 		}
@@ -51,6 +51,7 @@ public class RecHanoi{
 		if(targetPeg!=2 || targetPeg!=3){
 			throw new IllegalArgumentException("Only peg 2 and peg 3 are valid targets for the tower move");
 		}
+		//Since only 2 or 3 should get to this point, else handles 3
 		if(targetPeg==2){
 			return moveTowerHelper(pegOne,pegTwo,pegThree);
 		}else{
@@ -88,7 +89,20 @@ public class RecHanoi{
 	 * Method to display the contents of each peg.
 	 */
 	public void displayPegs(){
+		System.out.print("Tower 1: ");
+		for(int i=0;i<size && pegOne[i]!=null; i++){
+			System.out.print(pegOne[i].getNumber() + " ");
+		}
 		
+		System.out.print("Tower 2: ");
+		for(int i=0;i<size && pegTwo[i]!=null; i++){
+			System.out.print(pegTwo[i].getNumber() + " ");
+		}
+		
+		System.out.print("Tower 3: ");
+		for(int i=0;i<size && pegThree[i]!=null; i++){
+			System.out.print(pegThree[i].getNumber() + " ");
+		}
 	}
 	
 	
