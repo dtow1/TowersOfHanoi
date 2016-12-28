@@ -109,6 +109,9 @@ public class RecHanoi{
 				
 				endPeg[endPegTop]=startPeg[startPegTop-1];
 				startPeg[startPegTop-1]=null;
+				if(autoDisplay){
+					displayTowers();
+				}
 			}
 
 
