@@ -88,7 +88,7 @@ public class RecHanoi{
 	/**
 	 * Method to display the contents of each peg.
 	 */
-	public void displayPegs(){
+	public void displayTowers(){
 		System.out.print("Tower 1: ");
 		for(int i=0;i<size && pegOne[i]!=null; i++){
 			System.out.print(pegOne[i].getNumber() + " ");
