@@ -31,7 +31,8 @@ public class RecHanoi{
 		pegOne = new Plate[size];
 		pegTwo = new Plate[size];
 		pegThree = new Plate[size];
-		pegOneTop=pegTwoTop=pegThreeTop=0;
+		pegOneTop=size;
+		pegTwoTop=pegThreeTop=0;
 		System.out.println(pegOneTop + " " + pegTwoTop + " " + pegThreeTop);
 		
 		//Initialize each tower to an empty value.
