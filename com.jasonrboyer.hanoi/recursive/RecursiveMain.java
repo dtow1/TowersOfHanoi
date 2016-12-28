@@ -3,7 +3,9 @@ package recursive;
 public class RecursiveMain {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		RecHanoi testTower = new RecHanoi(5);
+		
+		testTower.displayPegs();
 
 	}
 

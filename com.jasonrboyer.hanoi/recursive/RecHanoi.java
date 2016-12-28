@@ -94,12 +94,12 @@ public class RecHanoi{
 			System.out.print(pegOne[i].getNumber() + " ");
 		}
 		
-		System.out.print("Tower 2: ");
+		System.out.print("\nTower 2: ");
 		for(int i=0;i<size && pegTwo[i]!=null; i++){
 			System.out.print(pegTwo[i].getNumber() + " ");
 		}
 		
-		System.out.print("Tower 3: ");
+		System.out.print("\nTower 3: ");
 		for(int i=0;i<size && pegThree[i]!=null; i++){
 			System.out.print(pegThree[i].getNumber() + " ");
 		}
