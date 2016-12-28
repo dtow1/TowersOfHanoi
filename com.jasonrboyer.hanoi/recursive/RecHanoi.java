@@ -34,7 +34,8 @@ public class RecHanoi{
 		
 		//Initialize each tower to an empty value.
 		for(int i=0; i<size;i++){
-			pegOne[i]=new Plate(i+1);
+			pegOne[size-(i+1)]=new Plate(i+1); 	//Initialize from largest to smallest so you can tell 
+												//at a glance that larger values are always below smaller values.
 			pegTwo[i]=null;
 			pegThree[i]=null;
 		}
